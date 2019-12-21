@@ -12,7 +12,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "vpc_network_west" {
-  provider    = "aws.west"
+  provider    = aws.west
   cidr_block  = "10.100.0.0/16"
 
   tags = {

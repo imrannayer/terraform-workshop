@@ -14,7 +14,7 @@ provider "aws" {
 
 
 variable "x_vpc_cidr" {
-  description = "Create RG with these names"
+  description = "Create VPC with these CIDR"
   type        = list(string)
   default     = ["10.10.0.0/16", "10.20.0.0/16", "10.30.0.0/16"]
 }

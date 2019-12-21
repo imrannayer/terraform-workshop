@@ -58,7 +58,8 @@ Resources:
       Path: '/'
       RoleName: 'TF-Course-Lab-Role'
       ManagedPolicyArns:
-      - arn:aws:iam::aws:policy/AdministratorAccess
+      - arn:aws:iam::aws:policy/AmazonVPCFullAccess
+      # - arn:aws:iam::aws:policy/AdministratorAccess
 
   MyAccessSecurityGroup:
     Type: AWS::EC2::SecurityGroup

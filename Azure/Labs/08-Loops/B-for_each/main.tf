@@ -1,11 +1,3 @@
-provider "azurerm" {
-  # subscription_id = "your_subscription_id"
-  # client_id       = "your_appId"
-  # client_secret   = "your_password"
-  # tenant_id       = "your_tenant_id"
-}
-
-
 ########################  List of RG  #############################
 
 
@@ -20,6 +12,10 @@ resource "azurerm_resource_group" "rg_list" {
   for_each = toset (var.rg_name_list)
   name  = each.value
   location = "southcentralus"
+}
+
+output A_rg_list {
+  value = azurerm_resource_group.rg_list
 }
 
 
@@ -44,6 +40,11 @@ resource "azurerm_resource_group" "rg_map" {
     environment = each.key
   }
 }
+
+output B_rg_maps {
+  value = azurerm_resource_group.rg_map
+}
+
 
 ########################  Maps of Map  #############################
 
@@ -76,24 +77,6 @@ resource "azurerm_resource_group" "rg_map_of_map" {
   }
 }
 
-
-
-
-output A_rg_list {
-  value = azurerm_resource_group.rg_list
-}
-
-output "B_all_values_list" {
-  value       = values(azurerm_resource_group.rg_list)
-  description = "The ID of all vpcs"
-}
-
-output "C_all_id" {
-  value       = values(azurerm_resource_group.rg_list)[*].id
-  description = "The ID of all vpcs"
-}
-
-output "D_first_id" {
-  value       = values(azurerm_resource_group.rg_list)[0].id
-  description = "The ID of all vpcs"
+output B_rg_maps_of_maps {
+  value = azurerm_resource_group.rg_map_of_map
 }

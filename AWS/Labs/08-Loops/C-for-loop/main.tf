@@ -1,10 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-  # access_key = "my-access-key"
-  # secret_key = "my-secret-key" 
-}
-
-
 ####### Operations on list 
 
 variable "var_list" {
@@ -47,7 +40,7 @@ output B_2_map_as_map_with_updated {
 }
 
 
-### QUESTION: Create above exampe with map of numbers and show result with value = 100
+### QUESTION: Create above exampe with map of numbers and show result with value + 100
 
 
 
@@ -75,7 +68,7 @@ variable "var_list_of_maps" {
 output C_1_list_of_map_updated {
   value = [for x in var.var_list_of_maps : {
     name  = x.name
-    loc   = x.number +100
+    upd_value   = x.number + 100
     }]
 }
 
