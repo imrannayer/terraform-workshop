@@ -56,14 +56,14 @@ Resources:
             Service: 'ec2.amazonaws.com'
           Action: 'sts:AssumeRole'
       Path: '/'
-      RoleName: 'IACC-Ansible-Role'
+      RoleName: 'TF-Course-Lab-Role'
       ManagedPolicyArns:
       - arn:aws:iam::aws:policy/AdministratorAccess
 
   MyAccessSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: myIaccSG
+      GroupName: tf-lab-sg
       GroupDescription: Enable access within the VPC
       VpcId: !Ref VPCID
       SecurityGroupIngress:
