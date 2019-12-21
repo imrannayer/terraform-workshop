@@ -1,0 +1,12 @@
+https://cloud.google.com/docs/authentication/getting-started
+
+1) In the GCP Console, go to the Create service account key page.
+
+2) From the Service account drop-down list, select New service account.
+3) In the Service account name field, enter a name .
+4) From the Role drop-down list, select Project > Owner.
+5) Click Create. A JSON file that contains your key downloads to your computer.
+6) Add path to credential file to myenv.sh script
+7) Make sure "Compute Engine API" is enabled for your prooject
+
+

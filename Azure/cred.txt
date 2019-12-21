@@ -1,0 +1,21 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+1) Azure Active Directory --> App Registration
+
+2) Click New app registration. This will be Service principal used for TF and Ansiible autherization and authetication. 
+use following options
+Accounts in this organizational directory only (acpcloud1582outlook (Default Directory) only - Single tenant)
+Name it something you can recognize like my_automation_user etc. App type = Web App / API. Sign in URL leave blank. 
+
+
+3) Once app is created. Copy Application ID this will be your CLIENT_ID. Cpoy Directory Id this will be TENANT_ID 
+
+4) Now click on Certificates & Secrets 
+5) Press "New Client secret" button
+6) Fill description, Set expiry date and press save at the top. Grab key this will be CLIENT_SECRET. 
+7) Click all services.
+8) Search for Subscription and click on it
+9) copy subscription ID as SUBSCRIPTION_ID
+10) Click on subscription
+11) Click Access Control IAM
+12 Click "Add a role assignment". Assign Contributor role to the principal created (my_automation_user).

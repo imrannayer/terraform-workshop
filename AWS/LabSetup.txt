@@ -1,0 +1,16 @@
+Terraform Lab Setup.
+This will create one ec2 instance. Instance will have role assigned with admin privs . 
+
+Create an EC2 keypair and download it. 
+
+Gather Following info from your account:
+AMI Id of latest Amazon Linux AMI
+VPC Id
+Subnet ID of of one of your subnet where you want to create your ec2 instance
+Key pair created 
+
+Run Cloudformation template to create the vm. Use values collected in above steps. 
+Run following command to test if everything is fine:
+terraform --version
+packer --version
+

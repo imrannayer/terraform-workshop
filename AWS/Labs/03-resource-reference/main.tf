@@ -1,0 +1,24 @@
+provider "aws" {
+  region = "us-east-1"
+  # access_key = "my-access-key"
+  # secret_key = "my-secret-key" 
+}
+
+resource "aws_vpc" "vpc_network" {
+  cidr_block       = "10.10.0.0/16"
+
+  tags = {
+    Name = "my-tf-vpc-network"
+  }
+}
+
+resource "aws_subnet" "subnet1" {
+  cidr_block = "10.10.1.0/24"
+
+  tags = {
+    Name = "my-tf-vpc-subnet1"
+  }
+
+# Refer to vpc ID
+  vpc_id     = aws_vpc.vpc_network.id
+}
