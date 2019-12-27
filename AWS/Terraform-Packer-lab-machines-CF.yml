@@ -5,8 +5,9 @@ Parameters:
   InstanceTypeParameter:
     Type: String
     AllowedValues:
-      - t2.micro
       - t3.micro
+      - t2.micro
+    Default: t3.micro
     Description: Select EC2 instance type
 
   EC2KeyPair:
@@ -20,7 +21,7 @@ Parameters:
   Name:
     Type: String
     Description: Project Name.
-    Default: 'terraform-lab'
+    Default: 'terraform-course'
   VPCID:
     Type: AWS::EC2::VPC::Id
     Description: ID of the VPC to create Security Groups in.
@@ -38,14 +39,14 @@ Metadata:
           - EC2AmiID
 Resources:
   
-  AnsibleInstanceProfile:
+  MyInstanceProfile:
     Type: 'AWS::IAM::InstanceProfile'
     Properties:
       Path: '/'
       Roles:
-      - !Ref AnsibleRole
+      - !Ref MyRole
 
-  AnsibleRole:
+  MyRole:
     Type: 'AWS::IAM::Role'
     Properties:
       AssumeRolePolicyDocument:
@@ -59,6 +60,7 @@ Resources:
       RoleName: 'TF-Course-Lab-Role'
       ManagedPolicyArns:
       - arn:aws:iam::aws:policy/AmazonVPCFullAccess
+      - arn:aws:iam::aws:policy/AmazonEC2FullAccess
       # - arn:aws:iam::aws:policy/AdministratorAccess
 
   MyAccessSecurityGroup:
@@ -90,7 +92,7 @@ Resources:
       ImageId: !Ref EC2AmiID
       InstanceType: !Ref InstanceTypeParameter
       KeyName: !Ref EC2KeyPair      
-      IamInstanceProfile: !Ref AnsibleInstanceProfile
+      IamInstanceProfile: !Ref MyInstanceProfile
       SecurityGroupIds:
         - !Ref MyAccessSecurityGroup
       UserData:
@@ -98,6 +100,7 @@ Resources:
           !Sub |
             #!/bin/bash
             yum update -y
+            yum install -y git
             # pip install ansible
             # mkdir /home/ec2-user/ansible
             # echo "[defaults]" >> /home/ec2-user/.ansible.cfg
@@ -124,7 +127,7 @@ Resources:
       Tags:
         -
           Key: Name
-          Value: !Join [ "-", [ !Ref Name, "Source" ] ]        
+          Value: !Join [ "-", [ !Ref Name, "Lab" ] ]        
 Outputs:
 
   PublicIPAddressSource:
