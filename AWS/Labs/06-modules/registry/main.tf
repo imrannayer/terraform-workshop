@@ -4,6 +4,8 @@ provider "aws" {
   # secret_key = "my-secret-key" 
 }
 
+# https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0
+
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
