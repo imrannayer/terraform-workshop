@@ -1,0 +1,16 @@
+Setup Remote session using VsCode
+https://code.visualstudio.com/docs/remote/ssh
+
+
+GCP Modules
+
+https://github.com/terraform-google-modules
+
+
+Terraform Registry
+
+https://registry.terraform.io/
+
+Terraform AWS modules:
+https://github.com/terraform-aws-modules
+
