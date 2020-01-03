@@ -14,3 +14,12 @@ https://registry.terraform.io/
 Terraform AWS modules:
 https://github.com/terraform-aws-modules
 
+Terraform Case Studies (All)
+
+https://www.hashicorp.com/resources?content_type=Case%20Study&product=Terraform
+
+Terraform Case study StateFarm & Starbucks
+
+https://www.hashicorp.com/resources/state-farm-s-terraform-journey-the-good-the-bad-the-ugly
+
+https://www.hashicorp.com/resources/terraform-at-starbucks-infrastructure-as-code-for-software-engineers
