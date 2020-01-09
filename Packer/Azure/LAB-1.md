@@ -1,4 +1,4 @@
-# Create Azure Custom Image using Packer
+# Create Azure Custom Image via Packer
 
 ### What you will learn from this hands-on activity
 
