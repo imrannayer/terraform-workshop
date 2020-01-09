@@ -1,6 +1,6 @@
 ![alt text](https://camo.githubusercontent.com/fb782da4019ab66eeea35cc9b9ce73b2438b1688/687474703a2f2f646f632e72756c746f722e636f6d2f696d616765732f6769746875622d6c6f676f2e706e67 "Logo Title Text 1")
 
-# LAB # 1 - Git Branching - Branching Merge
+# LAB # 2 - Git Branch Merge
 
 
 ### With this hands-on lab you will work with Git Branching and merge the changes with master.
@@ -34,4 +34,4 @@ git status
 ```
 
 
-### What happened? do you see your changes on GitHub platfrom? 
+### What happened? do you see your changes on GitHub platform? 
