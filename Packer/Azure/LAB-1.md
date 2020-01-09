@@ -10,6 +10,10 @@ Hashicorp Packer allows building of Automated Machine Images. It is important pa
 
 Tool is easy to use and automates the creation of any type of machine images working with CI/CD tool.
 
+Illustration below display life cycle of pipeline
+
+![](https://miro.medium.com/max/1668/1*ktDtHwWBbIVlGG9bTvW6Xg.png)
+
 All of these activities can be performed from Azure shell and this lab works with Bash method.
 
 ####  Create Azure Resource Group & Auth token
