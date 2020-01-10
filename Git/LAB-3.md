@@ -33,5 +33,9 @@ git branch
 git status
 ```
 
+- Get Git log of your commits
+```bash
+git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+```
 
 ### What happened? do you see your changes on GitHub platform? 
