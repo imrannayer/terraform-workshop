@@ -1,0 +1,62 @@
+{
+    "variables": {
+        "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+        "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+        "ami_id": "ami-04b9e92b5572fa0d1",
+        "app_name": "myPackerImage",
+        "client_id": "{{env `AZ_CLIENT_ID`}}",
+        "client_secret": "{{env `AZ_CLIENT_SECRET`}}"
+
+      },
+    "builders": [{
+      "type": "azure-arm",
+  
+      "client_id": "{{user `client_id`}}",
+      "client_secret": "{{user `client_secret}}",
+      "tenant_id": "8eee4fdd-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+      "subscription_id": "a18c11ab-xxxx-xxxx-xxxx-xxxxxxxxxxxxx",
+  
+      "managed_image_resource_group_name": "myResourceGroup",
+      "managed_image_name": "myPackerImage",
+  
+      "os_type": "Linux",
+      "image_publisher": "Canonical",
+      "image_offer": "UbuntuServer",
+      "image_sku": "16.04-LTS",
+  
+      "azure_tags": {
+          "dept": "Engineering",
+          "task": "Image deployment"
+      },
+  
+      "location": "East US",
+      "vm_size": "Standard_DS2_v2"
+    },
+    {
+        "type": "amazon-ebs",
+        "access_key": "{{user `aws_access_key`}}",
+        "secret_key": "{{user `aws_secret_key` }}",
+        "region": "us-east-1",
+        "source_ami": "{{user `ami_id`}}",
+        "instance_type": "t2.micro",
+        "ssh_username": "ec2-user",
+        "ami_name": "myPackerImage",
+        "tags": {
+            "Name": "myPackerImage",
+            "Env": "Test"
+          }
+      }
+    ],
+    "provisioners": [{
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
+      "inline": [
+        "apt-get update",
+        "apt-get upgrade -y",
+        "apt-get -y install nginx",
+  
+        "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+      ],
+      "inline_shebang": "/bin/sh -x",
+      "type": "shell"
+    }]
+  }
