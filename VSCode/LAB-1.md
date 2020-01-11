@@ -1,4 +1,4 @@
-# VS Code - Command Palette
+# LAB # 1 - VS Code - Command Palette
 
 #### With this hands-on activity you will learn how to use VS Code command palette to install required Extensions.
 

@@ -1,4 +1,4 @@
-# VS Code - Comment & Uncomment code
+# LAB # 2 - VS Code - Comment & Uncomment code
 
 #### With this hands-on activity you will learn how to use VS Code multi lines comment and uncomment 
 

@@ -1,4 +1,4 @@
-# VS Code - Git integration with repo(s)
+# LAB # 3 - VS Code - Git integration with repo(s)
 
 #### With this hands-on activity you will learn how to use VS Code integration with Github
 
