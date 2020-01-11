@@ -54,6 +54,7 @@ git commit -m "My first change"
     - Use your github username
     - new_repo = my_tf_course.git
 
+## Updated fix
 ```bash
 git remote add origin https://github.com/username/my_tf_course.git
 
