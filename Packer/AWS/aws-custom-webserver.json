@@ -1,6 +1,6 @@
 {
   "variables": {
-    "ami_id": "ami-04b9e92b5572fa0d1",
+    "ami_id": "ami-062f7200baf2fa504",
     "app_name": "myPackerImage"
   },
   "builders": [{
@@ -18,12 +18,11 @@
     "provisioners": [{
       "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "inline": [
-        "apt-get update",
-        "apt-get upgrade -y",
-        "apt-get -y install nginx",
-  
-        "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
-      ],
+        "sleep 30",
+        "sudo yum -y update",
+        "sudo yum install -y httpd",
+        "sudo systemctl enable httpd"
+        ],
       "inline_shebang": "/bin/sh -x",
       "type": "shell"
     }]

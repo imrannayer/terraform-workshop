@@ -1,10 +1,10 @@
-# Create Azure Custom Image via Packer
+# Create AWS Custom Image via Packer
 
 ### What you will learn from this hands-on activity
 
-- Create Azure Resource Group 
+- Login to AWS Cloud VM
 - Learn Packer template for creating custom image 
-- Launch Azure VM from custom image
+- Launch AWS VM from custom image
 
 Hashicorp Packer allows building of Automated Machine Images. It is important part of puzzle for IaC as customer have different requirements for setting baseline for following standards.
 
@@ -14,94 +14,85 @@ Illustration below display life cycle of pipeline
 
 ![](https://miro.medium.com/max/1668/1*ktDtHwWBbIVlGG9bTvW6Xg.png)
 
-All of these activities can be performed from Azure shell and this lab works with Bash method.
+All of these activities can be performed from AWS shell and this lab works with Bash method.
 
-####  Create Azure Resource Group & Auth token
+####  Create AWS Resource Group & Auth token
 
-- Launch Azure Cloud shell and execute command below to create new Azure Resource Group
+- Login to AWS Cloud VM and clone repo 
 
 ```bash 
-az group create -n myResourceGroup -l eastus
+git clone https://github.com/imrannayer/tf_course.git
+cd tf_course/Packer/AWS
+ls aws-custom-webserver.json
 ```
 
-- Create Azure credentials for Packer template
+- Verify AWS SDK/CLI is working
+
 ```bash
-az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+aws sts get-caller-identity
 ```
 
 An example of the output from the preceding commands is as follows:
 
-```json
-{
-    "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-xxxxxxxxxx",
-    "client_secret": "0e760437-bf34-4aad-9f8d-xxxxxxxxxx",
-    "tenant_id": "72f988bf-86f1-41af-91ab-xxxxxxxxxx"
-}
-```
-
-- To authenticate to Azure, you also need to obtain your Azure subscription ID
-```bash
-az account show --query "{ subscription_id: id }"
-
+```table
+----------------------------------------------------------------------------------------
+|                                   GetCallerIdentity                                  |
++--------------+---------------------------------------------+-------------------------+
+|    Account   |                     Arn                     |         UserId          |
++--------------+---------------------------------------------+-------------------------+
+|  900550000000|  arn:aws:iam::900550000000:user/user1.user  |  AIDA5DLXXXXXXXXXXXXXX  |
++--------------+---------------------------------------------+-------------------------+
 ```
 
 
-### Create Azure custom image
+### Create AWS custom image
 
 - Upload or copy/paste provided JSON template file for creating custom image.
 
-- Update following values from above step.
-    - client_id
-    - client_secret
-    - tenant_id
-    - subscription_id
 - Execute packer builder command:
 ```bash
-packer build azure-custom-webserver.json
-```   
+packer build aws-custom-webserver.json
+```  
 
-- Verify output from Packer for successful image creation. Also, verify the Azure Resource Group for image. 
+- Example Output
 
-Hint: RM name is defined in template.
+```
+==> Builds finished. The artifacts of successful builds are:
+2020/01/10 21:26:52 machine readable: amazon-ebs,artifact []string{"0", "builder-id", "mitchellh.amazonebs"}
+2020/01/10 21:26:52 machine readable: amazon-ebs,artifact []string{"0", "id", "us-east-1:ami-088fa3d48430fd521"}
+2020/01/10 21:26:52 machine readable: amazon-ebs,artifact []string{"0", "string", "AMIs were created:\nus-east-1: ami-088fa3d48430fd521\n"}
+2020/01/10 21:26:52 machine readable: amazon-ebs,artifact []string{"0", "files-count", "0"}
+2020/01/10 21:26:52 machine readable: amazon-ebs,artifact []string{"0", "end"}
+us-east-1: ami-088fa3d48430fd521
+--> amazon-ebs: AMIs were created:
+us-east-1: ami-088fa3d48430fd521
 
-### Launch Azure VM from custom image
+```
+- Verify output from Packer for successful image creation. Also, verify the AWS Resource Group for image. 
 
-- Launch Azure VM with custom image via cli command from cloud shell:
+
+### Launch AWS VM from custom image
+
+- Verify the image creation in AWS Console or via CLI:
 
 ```bash
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image myPackerImage \
-    --admin-username azureuser \
-    --generate-ssh-keys
+aws ec2 describe-images --image ami-088fa3d4843xxxx
 ```
 
-- Once VM is created, open port 80 for http access
+- Launch instance from Console or CLI
 
-```bash
-az vm open-port \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --port 80
-```
 
-- Can you access web url using public IP?
 
 #### Cleanup 
 
 - Terminate the VM created with following cli cmd:
 ```bash
-az vm delete  --resource-group myResourceGroup     --name myVM
+
+aws ec2 describe-snapshots --owner self
+aws ec2 deregister-image --image ami-088fa3d4843xxxx
+aws ec2 delete-snapshot --snapshot-id snap-07791937bxxxx
 ```
 Note: If you different name was used, change your name to match your environment.
-
-- Delete all resources created under Azure RM:
-```bash
-az  resource list --output=table
-
-az group delete --name  myResourceGroup
-```
 
 
 #### Summary
