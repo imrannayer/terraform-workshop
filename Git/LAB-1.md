@@ -55,8 +55,8 @@ git commit -m "My first change"
     - new_repo = my_tf_course.git
 
 ```bash
-git remote add origin git@github.com:username/my_tf_course.git
+git remote add origin https://github.com/username/my_tf_course.git
 
-Example: git remote add origin git@github.com:abdul-git/my_tf_course.git
+Example: git remote add origin https://github.com/abdul-git/my_tf_course.git
 git push -u origin master
 ```
