@@ -56,5 +56,7 @@ git commit -m "My first change"
 
 ```bash
 git remote add origin git@github.com:username/my_tf_course.git
+
+Example: git remote add origin git@github.com:abdul-git/my_tf_course.git
 git push -u origin master
 ```
