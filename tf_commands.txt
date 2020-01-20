@@ -6,6 +6,8 @@ terraform plan -detailed-exitcode
 1 = Error
 2 = Succeeded with non-empty diff (changes present)
 
+terraform apply
+
 
 terraform apply -parallelism=2 -auto-approve
 

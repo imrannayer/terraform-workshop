@@ -61,6 +61,7 @@ Resources:
       ManagedPolicyArns:
       - arn:aws:iam::aws:policy/AmazonVPCFullAccess
       - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+      - arn:aws:iam::aws:policy/AmazonS3FullAccess
       # - arn:aws:iam::aws:policy/AdministratorAccess
 
   MyAccessSecurityGroup:
@@ -117,13 +118,16 @@ Resources:
             wget https://releases.hashicorp.com/packer/1.5.1/packer_1.5.1_linux_amd64.zip -P /home/ec2-user/packer
             unzip /home/ec2-user/packer/packer_1.5.1_linux_amd64.zip -d /home/ec2-user/packer
             rm -f /home/ec2-user/packer/packer_1.5.1_linux_amd64.zip
-            chown -R ec2-user:ec2-user /home/ec2-user/packer
             mkdir /home/ec2-user/terraform
             wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip -P /home/ec2-user/terraform
             unzip /home/ec2-user/terraform/terraform_0.12.18_linux_amd64.zip -d /home/ec2-user/terraform
             rm -rf /home/ec2-user/terraform/terraform_0.12.18_linux_amd64.zip
-            chown -R ec2-user:ec2-user /home/ec2-user/terraform
-            echo "export PATH=/home/ec2-user/packer:/home/ec2-user/terraform:\$PATH" >> /home/ec2-user/.bash_profile            
+            echo "export PATH=/home/ec2-user/packer:/home/ec2-user/terraform:\$PATH" >> /home/ec2-user/.bash_profile
+            git clone https://github.com/imrannayer/tf_course.git /home/ec2-user/tf_course
+            mkdir /home/ec2-user/.aws
+            echo "[default]" >> /home/ec2-user/.aws/config
+            echo "region=us-east-1" >> /home/ec2-user/.aws/config
+            chown -R ec2-user:ec2-user /home/ec2-user/terraform /home/ec2-user/tf_course /home/ec2-user/packer /home/ec2-user/.aws
       Tags:
         -
           Key: Name
