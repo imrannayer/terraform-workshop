@@ -5,6 +5,8 @@ provider "azurerm" {
   # tenant_id       = "your_tenant_id"
 }
 
+# Change name of resource_group_name, storage_account_name,  container_name and Create it in your account 
+
 terraform {
   backend "azurerm" {
     resource_group_name  = "mybackendrg99"

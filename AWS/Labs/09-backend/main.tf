@@ -4,6 +4,8 @@ provider "aws" {
   # secret_key = "my-secret-key" 
 }
 
+# Change name of bucket and Create it in your account 
+
 terraform {
   backend "s3" {
     bucket = "mybackend99"
