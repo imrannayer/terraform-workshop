@@ -25,8 +25,8 @@ variable "inbound_ip_map" {
 
 resource "azurerm_network_security_group" "mysg_map" {
   name                = "my-tf-sg_map"
-  location            = "${azurerm_resource_group.myrg.location}"
-  resource_group_name = "${azurerm_resource_group.myrg.name}"
+  location            = azurerm_resource_group.myrg.location
+  resource_group_name = azurerm_resource_group.myrg.name
 
   dynamic "security_rule" {
     for_each = var.inbound_ip_map
@@ -60,8 +60,8 @@ variable "inbound_ip_list" {
 
 resource "azurerm_network_security_group" "mysg_list" {
   name                = "my-tf-sg_list"
-  location            = "${azurerm_resource_group.myrg.location}"
-  resource_group_name = "${azurerm_resource_group.myrg.name}"
+  location            = azurerm_resource_group.myrg.location
+  resource_group_name = azurerm_resource_group.myrg.name
 
   dynamic "security_rule" {
     for_each = var.inbound_ip_list
