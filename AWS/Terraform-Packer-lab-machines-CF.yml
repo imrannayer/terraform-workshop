@@ -25,6 +25,10 @@ Parameters:
   VPCID:
     Type: AWS::EC2::VPC::Id
     Description: ID of the VPC to create Security Groups in.
+  MYIP:
+    Type: String
+    Description: Your Public IP address
+    Default: 0.0.0.0/0
     
 Metadata:
   AWS::CloudFormation::Interface:
@@ -37,6 +41,7 @@ Metadata:
           - InstanceTypeParameter
           - EC2KeyPair
           - EC2AmiID
+          - MYIP
 Resources:
   
   MyInstanceProfile:
@@ -72,12 +77,7 @@ Resources:
       VpcId: !Ref VPCID
       SecurityGroupIngress:
         -
-          CidrIp: 0.0.0.0/0
-          IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
-        -
-          CidrIp: 0.0.0.0/0
+          CidrIp: !Ref MYIP
           IpProtocol: tcp
           FromPort: 22
           ToPort: 22

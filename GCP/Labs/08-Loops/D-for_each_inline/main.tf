@@ -40,3 +40,15 @@ variable "inbound_ip_map" {
 #   type        = list(string)
 #   default     = ["80", "8080", "1000-2000"]
 # }
+
+resource "google_compute_firewall" "vpc_firewall" {
+  name    = "test-firewall"
+  network = "${google_compute_network.vpc_network.name}"
+
+  dynamic "allow" {
+    for_each = var.inbound_ip_map
+    content {
+      protocol = allow.key
+      ports    = allow.value
+  }
+}
