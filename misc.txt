@@ -23,3 +23,9 @@ Terraform Case study StateFarm & Starbucks
 https://www.hashicorp.com/resources/state-farm-s-terraform-journey-the-good-the-bad-the-ugly
 
 https://www.hashicorp.com/resources/terraform-at-starbucks-infrastructure-as-code-for-software-engineers
+
+Reference:
+
+http://wiki.ciscolinux.co.uk/index.php?title=Terraform
+https://www.terraform-best-practices.com/
+https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca
