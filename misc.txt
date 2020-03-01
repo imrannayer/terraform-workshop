@@ -30,3 +30,14 @@ http://wiki.ciscolinux.co.uk/index.php?title=Terraform
 https://www.terraform-best-practices.com/
 https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca
 https://www.unixdaemon.net/tools/terraform-precommit-hooks/
+
+Repo:
+
+https://github.com/cesar-rodriguez/terrascan
+https://github.com/segmentio/terraform-docs
+https://github.com/gruntwork-io
+https://github.com/mermaid-js/mermaid
+https://github.com/newcontext-oss/kitchen-terraform
+https://github.com/elmundio87/terraform_validate
+https://github.com/instrumenta/conftest
+https://github.com/GoogleCloudPlatform/professional-services
