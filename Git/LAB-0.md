@@ -16,8 +16,8 @@ You can create GitHub repo two ways, using GitHub via browser or via REST-API
 ##### Repo via Web browser
 
 1. Sign into your GitHub account
-2. Click "Start a project"
-3. Name your project "my_first_repo" and take everything default
+2. Open master repo: https://github.com/imrannayer/tf_course
+3. Fork repo to your github account
 
 ##### Repo via REST-API
 
