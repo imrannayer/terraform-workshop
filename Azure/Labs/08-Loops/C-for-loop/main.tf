@@ -29,7 +29,6 @@ variable "var_map" {
 
 output B_1_convert_map_as_list {
   value = [for x in var.var_map : x]
-  # value = [for x, y in var.var_map : y]
 }
 
 output B_2_map_as_map_with_updated {
