@@ -3,6 +3,7 @@ provider "azurerm" {
   # client_id       = "your_appId"
   # client_secret   = "your_password"
   # tenant_id       = "your_tenant_id"
+  features {}
 }
 provider "azurerm" {
   # subscription_id = "your_subscription_id"
@@ -10,6 +11,7 @@ provider "azurerm" {
   # client_secret   = "your_password"
   # tenant_id       = "your_tenant_id"
   alias  = "arm2"
+  features {}
 }
 
 resource "azurerm_resource_group" "rg_arm1" {

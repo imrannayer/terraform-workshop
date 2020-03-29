@@ -3,6 +3,7 @@ provider "azurerm" {
   # client_id       = "your_appId"
   # client_secret   = "your_password"
   # tenant_id       = "your_tenant_id"
+  features {}
 }
 
 # Change name of resource_group_name, storage_account_name,  container_name and Create it in your account 
