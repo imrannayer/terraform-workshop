@@ -102,26 +102,14 @@ Resources:
             #!/bin/bash
             yum update -y
             yum install -y git
-            # pip install ansible
-            # mkdir /home/ec2-user/ansible
-            # echo "[defaults]" >> /home/ec2-user/.ansible.cfg
-            # echo "inventory = ~/ansible/instance.txt" >> /home/ec2-user/.ansible.cfg
-            # echo "private_key_file=~/ansible/$EC2KeyPair" >> /home/ec2-user/.ansible.cfg
-            # echo "remote_user = ec2-user" >> /home/ec2-user/.ansible.cfg
-            # echo "retry_files_enabled = false" >> /home/ec2-user/.ansible.cfg
-            # echo "[web]" >> /home/ec2-user/ansible/instance.txt
-            # echo "Private_ip_of_target_ec2" >> /home/ec2-user/ansible/instance.txt
-            # echo "[db]" >> /home/ec2-user/ansible/instance.txt
-            # echo "34.227.117.155" >> /home/ec2-user/ansible/instance.txt
-            # chown -R ec2-user:ec2-user /home/ec2-user/ansible
             mkdir /home/ec2-user/packer
             wget https://releases.hashicorp.com/packer/1.5.1/packer_1.5.1_linux_amd64.zip -P /home/ec2-user/packer
             unzip /home/ec2-user/packer/packer_1.5.1_linux_amd64.zip -d /home/ec2-user/packer
             rm -f /home/ec2-user/packer/packer_1.5.1_linux_amd64.zip
             mkdir /home/ec2-user/terraform
-            wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip -P /home/ec2-user/terraform
-            unzip /home/ec2-user/terraform/terraform_0.12.18_linux_amd64.zip -d /home/ec2-user/terraform
-            rm -rf /home/ec2-user/terraform/terraform_0.12.18_linux_amd64.zip
+            wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip -P /home/ec2-user/terraform
+            unzip /home/ec2-user/terraform/terraform_0.12.24_linux_amd64.zip -d /home/ec2-user/terraform
+            rm -rf /home/ec2-user/terraform/terraform_0.12.24_linux_amd64.zip
             echo "export PATH=/home/ec2-user/packer:/home/ec2-user/terraform:\$PATH" >> /home/ec2-user/.bash_profile
             git clone https://github.com/imrannayer/tf_course.git /home/ec2-user/tf_course
             mkdir /home/ec2-user/.aws
