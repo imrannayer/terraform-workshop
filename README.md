@@ -11,6 +11,7 @@ Labs description
 ## How to configure 
 Every folder have a shell scirpt. Update shell scirpt with your cloud configuration. 
 cred.txt file Will show you how to create service accounts and gether authentication variables. 
+LabSetup.txt have details on how to setup Lab envs. 
 
 ### 01-A-simple
 
