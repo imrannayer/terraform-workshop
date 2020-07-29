@@ -112,12 +112,17 @@ variable "var_maps_of_maps" {
 }
 
 output D_1_map_of_map_updated {
-  value = {for x, y in var.var_maps_of_maps : x => {name = y.name, number = y.number + 100}
-}
+  value = {for x, y in var.var_maps_of_maps : 
+    x => {
+      name = y.name 
+      number = y.number + 100
+    }
+  }
 }
 
 output D_2_map_string {
-  value = {for x, y in var.var_maps_of_maps : x => y.name
-}
+  value = {for x, y in var.var_maps_of_maps : 
+    x => y.name
+  }
 }
 
