@@ -36,7 +36,6 @@ variable "var_map" {
 
 output B_1_convert_map_as_list {
   value = [for x in var.var_map : x]
-  # value = [for x, y in var.var_map : y]
 }
 
 output B_2_map_as_map_with_updated {
@@ -56,7 +55,7 @@ output B_2_map_as_map_with_updated {
 variable "var_list_of_maps" {
   description = "Variable list of maps"
   type        = list(map(string))
-  default     = [
+  default = [
     {
       name   = "a"
       number = 1
@@ -91,7 +90,34 @@ output C_3_maps_of_maps {
 
 
 
+####### Operations on maps of maps 
 
-# output C_4_list_of_map_single_value {
-#   value = [for x in var.var_list_of_maps : x]
-# }
+variable "var_maps_of_maps" {
+  description = "Variable list of maps"
+  type        = map(map(string))
+  default = {
+    "value1" = {
+      name   = "a"
+      number = 1
+    }
+    "value2" = {
+      name   = "b"
+      number = 2
+    }
+    "value3" = {
+      name   = "c"
+      number = 3
+    }
+  }
+}
+
+output D_1_map_of_map_updated {
+  value = {for x, y in var.var_maps_of_maps : x => {name = y.name, number = y.number + 100}
+}
+}
+
+output D_2_map_string {
+  value = {for x, y in var.var_maps_of_maps : x => y.name
+}
+}
+
