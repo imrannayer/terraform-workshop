@@ -27,11 +27,12 @@ variable "vpc_name_list" {
 variable "vpc_name_map" {
   description = "Create RG with these names"
   type        = map(string)
-  default     = {
-                  map_vpc1 = "map-first"
-                  map_vpc2 = "map-second"
-                  map_vpc3 = "map-third"
-                }
+  default = 
+  {
+    map_vpc1 = "map-first"
+    map_vpc2 = "map-second"
+    map_vpc3 = "map-third"
+  }
 }
 
 # resource "google_compute_network" "vpc_network_map" {
@@ -44,20 +45,21 @@ variable "vpc_name_map" {
 variable "x_vpc_name_map_of_maps" {
   description = "Create RG with these names"
   type        = map(map(string))
-  default     = {
-                  "mom_vpc1" =  {
-                                vpc_name = "mom-first"
-                                vpc_description = "Maps of maps firist vpc"
-                              }
-                  "mom_vpc2" =  {
-                                vpc_name = "mom-second"
-                                vpc_description = "Maps of maps second vpc"
-                              }
-                  "mom_vpc3" =  {
-                                vpc_name = "mom-third"
-                                vpc_description = "Maps of maps third vpc"
-                              }
-                }
+  default     = 
+  {
+    "mom_vpc1" =  {
+      vpc_name = "mom-first"
+      vpc_description = "Maps of maps firist vpc"
+    }
+    "mom_vpc2" =  {
+      vpc_name = "mom-second"
+      vpc_description = "Maps of maps second vpc"
+    }
+    "mom_vpc3" =  {
+      vpc_name = "mom-third"
+      vpc_description = "Maps of maps third vpc"
+    }
+  }
 }
 
 resource "google_compute_network" "vpc_network_mom" {
