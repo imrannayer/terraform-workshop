@@ -10,6 +10,7 @@ Extending the adopted spec, each change should have a link to its corresponding 
 
 ### NEW FEATURES
 - added GCP Lab for loops in module
+- added Azure Lab for loops in module
 ### ENHANCEMENTS
 - added loops example for maps of maps
 - added CHANGELOG
