@@ -20,5 +20,5 @@ module "network" {
   address_space       = "10.0.0.0/16"
   subnet_names        = ["mySubnet1", "mySubnet2"]
   subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24"]
-  depends_on [azurerm_resource_group.example]
+  depends_on          = [azurerm_resource_group.example]
 }
