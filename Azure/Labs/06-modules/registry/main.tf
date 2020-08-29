@@ -14,10 +14,10 @@ resource "azurerm_resource_group" "example" {
 # https://registry.terraform.io/modules/Azure/vnet/azurerm/2.1.0
 
 module "network" {
-  source              = "Azure/vnet/azurerm"
-  version             = "~> 2.1"
+  source              = "Azure/network/azurerm"
+  version             = "~> 3.1"
   resource_group_name = azurerm_resource_group.example.name
-  address_space       = ["10.0.0.0/16"]
+  address_space       = "10.0.0.0/16"
   subnet_names        = ["mySubnet1", "mySubnet2"]
   subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
