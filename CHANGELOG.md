@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Extending the adopted spec, each change should have a link to its corresponding pull request appended.
 
-## [2.0.0] (Unreleased)
+## [2.0.0]
 
 ### NEW FEATURES
 - added GCP Lab for loops in module
