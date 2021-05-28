@@ -84,7 +84,8 @@ Folder has test code to verify your local settings.
 
 - Create Gitpod account [https://www.gitpod.io/](https://www.gitpod.io/)
 - Install Browser Extension [https://www.gitpod.io/docs/browser-extension](https://www.gitpod.io/docs/browser-extension)
-- Configure below listed environment variables [https://gitpod.io/variables](https://gitpod.io/variables)
+- Refresh code repo then you will be seeing `Gitpod` button
+- `[optional]` Configure below listed environment variables [https://gitpod.io/variables](https://gitpod.io/variables)
 ```
 AWS_DEFAULT_REGION=<value>
 AWS_ACCESS_KEY_ID=<value>
