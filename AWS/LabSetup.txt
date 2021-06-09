@@ -1,5 +1,10 @@
 Terraform Lab Setup.
-Open AWS cloud shell & install terraform using following commands.
+
+Select us-east-1 region.
+
+Open AWS cloud shell
+
+install terraform using following commands.
 
 sudo yum install -y yum-utils
 
