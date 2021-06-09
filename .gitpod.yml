@@ -1,0 +1,31 @@
+
+# https://www.gitpod.io/docs/config-docker
+image:
+  file: .gitpod.Dockerfile
+
+# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/config-ports/
+# ports:
+#   - port: 8090
+#     onOpen: open-preview
+
+# https://www.gitpod.io/docs/config-start-tasks
+# tasks:
+  # - command: az login -u $AZ_USER -p $AZ_PASS; aws sts get-caller-identity; KEY_FILE_NAME=gcp_service_account_key_file.json && echo $GCP_KEY_FILE > ~/.$KEY_FILE_NAME && gcloud auth activate-service-account $GCP_SERVICE_ACCOUNT --key-file=/home/gitpod/.$KEY_FILE_NAME
+  
+  # https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli
+  # - openMode: split-right
+  #   command: az login
+
+  # https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login
+  # - openMode: split-right
+  #   command: gcloud auth application-default login
+  
+  # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
+  # - openMode: split-right
+  #   command: aws sts get-caller-identity  
+
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - github.vscode-pull-request-github
+    - hashicorp.terraform

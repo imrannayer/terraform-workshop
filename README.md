@@ -79,3 +79,25 @@ This lab demonstrates how to use backends like object storage buckets.
 
 ### smoke 
 Folder has test code to verify your local settings.  
+
+## Gitpod Setup
+To get started, follow these steps:
+- Create Gitpod account [https://www.gitpod.io/](https://www.gitpod.io/)
+- Install Browser Extension [https://www.gitpod.io/docs/browser-extension](https://www.gitpod.io/docs/browser-extension)
+- Refresh code repo then you will be seeing `Gitpod` button
+- `[optional]` Configure below listed environment variables [https://gitpod.io/variables](https://gitpod.io/variables)
+```
+AWS_DEFAULT_REGION=<value>
+AWS_ACCESS_KEY_ID=<value>
+AWS_SECRET_ACCESS_KEY=<value>
+AZ_USER=<value>
+AZ_PASS=<value>
+GCP_SERVICE_ACCOUNT=<value>
+GCP_KEY_FILE=<value>
+```
+
+## Development Container Setup
+To get started, follow these steps:
+- Install and configure Docker for your operating system [https://code.visualstudio.com/docs/remote/containers#_installation](https://code.visualstudio.com/docs/remote/containers#_installation)
+- Install Visual Studio Code extension - *Remote Development* (`ms-vscode-remote.vscode-remote-extensionpack`)
+- Open an existing folder in a container [https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
