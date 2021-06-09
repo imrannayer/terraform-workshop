@@ -1,16 +1,8 @@
 Terraform Lab Setup.
-This will create one ec2 instance. Instance will have role assigned with admin privs . 
+Open AWS cloud shell & install terraform using following commands.
 
-Create an EC2 keypair and download it. 
+sudo yum install -y yum-utils
 
-Gather Following info from your account:
-AMI Id of latest Amazon Linux AMI
-VPC Id
-Subnet ID of of one of your subnet where you want to create your ec2 instance
-Key pair created 
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 
-Run Cloudformation template to create the vm. Use values collected in above steps. 
-Run following command to test if everything is fine:
-terraform --version
-packer --version
-
+sudo yum -y install terraform
