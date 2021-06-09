@@ -1,1 +1,3 @@
-User Azure Cloud shell
+Use Azure Cloud shell
+
+git clone https://github.com/imrannayer/terraform-workshop.git

@@ -1,1 +1,3 @@
-user cloud shell
+use cloud shell
+
+git clone https://github.com/imrannayer/terraform-workshop.git
