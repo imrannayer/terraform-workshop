@@ -1,3 +1,5 @@
 use cloud shell
 
 git clone https://github.com/imrannayer/terraform-workshop.git
+
+terraform --version
