@@ -13,7 +13,7 @@ terraform {
     resource_group_name  = "mybackendrg99"
     storage_account_name = "mybackendsa99"
     container_name       = "mybackend99"
-    key                  = "hr.app1.network.terraform.tfstate"
+    key                  = "hr.network.terraform.tfstate"
   }
 }
 resource "azurerm_resource_group" "rg" {

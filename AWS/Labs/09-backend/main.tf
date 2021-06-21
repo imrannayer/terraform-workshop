@@ -8,8 +8,8 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "mybackend99"
-    key    = "hr/app1/network/terraform.tfstate"
+    bucket = "<MY_BUCKET_NAME>"
+    key    = "hr/network/terraform.tfstate"
     region = "us-east-1"
   }
 }

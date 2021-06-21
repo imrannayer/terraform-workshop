@@ -1,13 +1,13 @@
 provider "google" {
   # credentials = "${file("account.json")}"
   # project     = "my-project-id"
-  # region      = "us-central1"
+  region      = "us-central1"
 }
 # Change name of bucket and Create it in your account 
 terraform {
   backend "gcs" {
-    bucket  = "mybackend99"
-    prefix  = "hr/app1/network"
+    bucket  = "<MY_BUCKET_NAME>"
+    prefix  = "hr/network"
   }
 }
 resource "google_compute_network" "vpc_network" {
