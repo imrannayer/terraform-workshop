@@ -9,6 +9,6 @@ resource "google_compute_network" "vpc_network" {
   auto_create_subnetworks = false
 }
 
-output "vpc_self_link" {
-  value = google_compute_network.vpc_network.self_link
+output "vpc_network" {
+  value = google_compute_network.vpc_network
 }

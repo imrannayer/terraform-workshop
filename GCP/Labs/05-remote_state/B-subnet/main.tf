@@ -17,5 +17,5 @@ resource "google_compute_subnetwork" "vpc_subnet" {
   ip_cidr_range = "10.10.10.0/24"
 
 ##################
-  network       = data.terraform_remote_state.myvpc.outputs.vpc_self_link
+  network       = data.terraform_remote_state.myvpc.outputs.vpc_network.self_link
 }
