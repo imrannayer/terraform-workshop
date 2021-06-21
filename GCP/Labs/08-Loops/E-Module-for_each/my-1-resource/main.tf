@@ -1,10 +1,10 @@
 terraform {
-  required_version = ">= 0.13.0-rc1"
+  required_version = ">= 0.13"
 }
 provider "google" {
   # credentials = "${file("account.json")}"
   # project     = "my-project-id"
-  # region      = "us-central1"
+  region      = "us-central1"
 }
 
 ### example without loop
