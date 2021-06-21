@@ -1,7 +1,7 @@
 provider "google" {
   # credentials = "${file("account.json")}"
   # project     = "my-project-id"
-  # region      = "us-central1"
+  region      = "us-central1"
 }
 module "myresource-1" {
   source        = "../modules"
