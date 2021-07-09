@@ -47,10 +47,9 @@ Once you are done drop the resource.
 
 ### 05-remote-state
 
-- This lab shows how to use Terraform remote state. 
-- Run Lab in folder A-XXX first. It will create resource. 
-- Create resource in B-XXX using values from resource created in A-XXXX folder. 
-- Code will show it is getting id of refered resource from A-XXX folder.
+- This lab shows how to use Terraform remote state.
+- deploy resource using code in folder A-XXX first.
+- Create resource using code in folder B-XXX. It will reference ID of the resource created in folder A-XXXX using remote state.
 - Drop the resource using terraform destroy after completing this lab.
 
 ### 06-modules
@@ -77,6 +76,12 @@ Once you are done drop the resource.
 
 ### 09-backend
 - This lab demonstrates how to use backends like object storage buckets.
+- Drop the resource using terraform destroy after completing this lab.
+
+### 10-data-source
+- This lab shows how to use Data source.
+- deploy resource using code in folder A-XXX first.
+- Create resource using code in folder B-XXX. It will pull the ID of the resource created in folder A-XXXX using using data source and use it as reference.
 - Drop the resource using terraform destroy after completing this lab.
 
 ### smoke 
