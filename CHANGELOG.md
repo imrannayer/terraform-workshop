@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Extending the adopted spec, each change should have a link to its corresponding pull request appended.
 
+## [2.3.0]
+- Udpated LabSetup.txt for AWS, Azure and GCP
+
+## [2.2.0]
+- added labs for data source
+
+## [2.1.0]
+- Updated labs
+
 ## [2.0.0]
 
 ### NEW FEATURES

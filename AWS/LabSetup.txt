@@ -1,15 +1,17 @@
-Terraform Lab Setup.
+1) Select us-east-1 region in cloud console.
 
-Select us-east-1 region.
+2) Open AWS cloud shell
 
-Open AWS cloud shell
-
-install terraform using following commands.
-
-sudo yum install -y yum-utils
-
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-
-sudo yum -y install terraform
+3) Clone code repository
 
 git clone https://github.com/imrannayer/terraform-workshop.git
+
+
+4) install terraform using script install_tf_in_shell.sh .
+
+cd terraform-workshop/AWS/Labs
+
+. install_tf_in_shell
+
+******** AWS cloud shell does not preserve software install after restartrt. You have to execute install_tf_in_shell.sh every time you login to cloud shell. ************* 
+

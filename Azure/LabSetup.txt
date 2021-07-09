@@ -1,5 +1,9 @@
-use Azure cloud shell
+1) use Azure cloud shell
+
+2) Clone code repository
 
 git clone https://github.com/imrannayer/terraform-workshop.git
+
+3) Check Terraform version in cloud shell
 
 terraform --version

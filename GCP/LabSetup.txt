@@ -1,5 +1,15 @@
-use cloud shell
+1) use cloud shell
+
+2) Make Sure your project ID is set in cloud shell. Execute following command to check & set project ID in cloud shell. Replace MY_PROJECT_ID with your project ID
+
+gcloud config list project
+
+gcloud config set project <MY_PROJECT_ID>
+
+3) Clone code repository
 
 git clone https://github.com/imrannayer/terraform-workshop.git
+
+4) Check Terraform version in cloud shell
 
 terraform --version
