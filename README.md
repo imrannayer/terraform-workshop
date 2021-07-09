@@ -1,4 +1,4 @@
-# Terraform Course
+# Terraform Workshop
 
 ## Assumptions 
 - You have understanding of cloud environment you are deploying resources to.
