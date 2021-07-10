@@ -14,7 +14,7 @@ variable "var_list" {
 }
 
 output A_1_values_in_list {
-  value = [for x in var.var_list : x]
+  value = [   for x in var.var_list : x]
 }
 
 output A_2_convert_list_as_maps {

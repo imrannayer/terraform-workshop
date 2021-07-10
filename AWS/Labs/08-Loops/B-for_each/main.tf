@@ -70,15 +70,15 @@ variable "x_vpc_cidr_map_of_maps" {
                 }
 }
 
-resource "aws_vpc" "vpc_network_map_of_map" {
-  for_each = var.x_vpc_cidr_map_of_maps
-    cidr_block          = each.value.cidr
-    enable_dns_support  = each.value.dns_support
-    tags = {
-      Name = each.value.name
-    }
-}
+# resource "aws_vpc" "vpc_network_map_of_map" {
+#   for_each = var.x_vpc_cidr_map_of_maps
+#     cidr_block          = each.value.cidr
+#     enable_dns_support  = each.value.dns_support
+#     tags = {
+#       Name = each.value.name
+#     }
+# }
 
-output C_vpc_list {
-  value = aws_vpc.vpc_network_map_of_map
-}
+# output C_vpc_list {
+#   value = aws_vpc.vpc_network_map_of_map
+# }

@@ -11,35 +11,29 @@ resource "google_compute_network" "vpc_network" {
 }
 
 
-resource "google_compute_firewall" "vpc_firewall" {
-  name    = "test-firewall"
-  network = "${google_compute_network.vpc_network.name}"
+# resource "google_compute_firewall" "vpc_firewall" {
+#   name    = "test-firewall"
+#   network = "${google_compute_network.vpc_network.name}"
 
-  allow {
-    protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000"]
-  }
-  allow {
-    protocol = "udp"
-    ports    = ["53"]
-  }
+#   allow {
+#     protocol = "tcp"
+#     ports    = ["80", "8080", "1000-2000"]
+#   }
+#   allow {
+#     protocol = "udp"
+#     ports    = ["53"]
+#   }
 
-}
+# }
 
 variable "inbound_ip_map" {
   description = "Inbound IP addresses"
-  type        = map(string)
+  type        = map
   default     = {
     tcp = ["80", "8080", "1000-2000"]
     udp = ["80", "8080", "1000-2000"]
   }
 }
-
-# variable "inbound_ip_list" {
-#   description = "Inbound IP addresses"
-#   type        = list(string)
-#   default     = ["80", "8080", "1000-2000"]
-# }
 
 resource "google_compute_firewall" "vpc_firewall" {
   name    = "test-firewall"
@@ -50,5 +44,6 @@ resource "google_compute_firewall" "vpc_firewall" {
     content {
       protocol = allow.key
       ports    = allow.value
+    }
   }
 }
