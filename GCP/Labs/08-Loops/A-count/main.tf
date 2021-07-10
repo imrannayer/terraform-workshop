@@ -8,7 +8,7 @@ provider "google" {
 variable "vpc_name" {
   description = "VPC names"
   type        = list(string)
-  default     = ["first", "second," "third"]
+  default     = ["first", "second", "third"]
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -16,7 +16,6 @@ resource "google_compute_network" "vpc_network" {
   name                    = var.vpc_name[count.index]
   auto_create_subnetworks = false
 }
-
 
 output vpc_list {
   value = google_compute_network.vpc_network

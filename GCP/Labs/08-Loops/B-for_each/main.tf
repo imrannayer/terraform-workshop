@@ -15,20 +15,22 @@ variable "vpc_name_list" {
 }
 
 
-# resource "google_compute_network" "vpc_network_list" {
-#   for_each                = toset (var.vpc_name_list)
-#   name                    = each.value
-#   auto_create_subnetworks = false
-# }
+resource "google_compute_network" "vpc_network_list" {
+  for_each                = toset (var.vpc_name_list)
+  name                    = each.value
+  auto_create_subnetworks = false
+}
 
+output "vpc_network_list" {
+  value = google_compute_network.vpc_network_list
+}
 
 ########################  Map of vpc  #############################
 
 variable "vpc_name_map" {
   description = "Create RG with these names"
   type        = map(string)
-  default = 
-  {
+  default = {
     map_vpc1 = "map-first"
     map_vpc2 = "map-second"
     map_vpc3 = "map-third"
@@ -40,13 +42,16 @@ variable "vpc_name_map" {
 #   name  = each.value
 # }
 
+# output "vpc_network_map" {
+#   value = google_compute_network.vpc_network_map
+# }
+
 ########################  Map of Maps of names and other details  #############################
 
 variable "x_vpc_name_map_of_maps" {
   description = "Create RG with these names"
   type        = map(map(string))
-  default     = 
-  {
+  default     = {
     "mom_vpc1" =  {
       vpc_name = "mom-first"
       vpc_description = "Maps of maps firist vpc"
@@ -62,30 +67,13 @@ variable "x_vpc_name_map_of_maps" {
   }
 }
 
-resource "google_compute_network" "vpc_network_mom" {
-  for_each = var.x_vpc_name_map_of_maps
-  name  = each.value.vpc_name
-  description = each.value.vpc_description
-}
-
-
-
-
-# output A_vpc_list {
-#   value = google_compute_network.vpc_network_list
+# resource "google_compute_network" "vpc_network_mom" {
+#   for_each = var.x_vpc_name_map_of_maps
+#   name  = each.value.vpc_name
+#   description = each.value.vpc_description
 # }
 
-# output "B_all_values_list" {
-#   value       = values(google_compute_network.vpc_network_list)
-#   description = "The ID of all vpcs"
+# output "vpc_network_mom" {
+#   value = google_compute_network.vpc_network_mom
 # }
 
-# output "C_all_id" {
-#   value       = values(google_compute_network.vpc_network_list)[*].id
-#   description = "The ID of all vpcs"
-# }
-
-# output "D_first_id" {
-#   value       = values(google_compute_network.vpc_network_list)[0].id
-#   description = "The ID of all vpcs"
-# }
